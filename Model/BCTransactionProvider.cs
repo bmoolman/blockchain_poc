@@ -17,9 +17,7 @@ namespace blockchain_poc.Model
                 OwnerId= ownderId,
                 DateCreated = dateCreated,
                 Amount = amount,
-                Balance = balance + amount   
-
-                
+                Balance = balance + amount                                 
             };
 
             var transHashes = BlockChainer.GetHashedValue(transactionPreviousId, bCTransaction);
@@ -27,6 +25,14 @@ namespace blockchain_poc.Model
             bCTransaction.TransactionHashCrypto = transHashes.Item2;
             return bCTransaction;
 
+        }
+
+        public bool IsValid(BCTransaction previousTransction, BCTransaction nextTransaction)
+        {
+            var transHashes = BlockChainer.GetHashedValue(previousTransction.TransactionId, nextTransaction);
+            var validationHash = nextTransaction.TransactionHashCrypto;
+
+            return transHashes.Item2 == validationHash;
         }
     }
 }

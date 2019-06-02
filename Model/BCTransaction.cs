@@ -15,5 +15,6 @@ namespace blockchain_poc.Model
         public decimal Balance { get; set; }
         public string TransactionHashSimple { get; set; } = "Genesis";
         public string TransactionHashCrypto { get; set; } = "CryptoGenesis";
+   
     }
 }

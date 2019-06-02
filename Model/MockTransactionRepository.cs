@@ -31,7 +31,7 @@ namespace blockchain_poc.Model
                                    
 
             //Create some mock transactions
-            for (int i = 1; i < 25; i++)
+            for (int i = 1; i < 50000; i++)
             {
                 bctProvider = new BCTransactionProvider();
 
