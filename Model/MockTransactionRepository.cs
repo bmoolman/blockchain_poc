@@ -31,7 +31,7 @@ namespace blockchain_poc.Model
                                    
 
             //Create some mock transactions
-            for (int i = 1; i < 5; i++)
+            for (int i = 1; i < 25; i++)
             {
                 bctProvider = new BCTransactionProvider();
 
@@ -43,7 +43,7 @@ namespace blockchain_poc.Model
                     randomNumber = random.Next(10, 500);
                 }
 
-                newBCTrans = bctProvider.AddTransaction(newBCTrans.TransactionId, i.ToString(), "ABC", DateTime.Now, randomNumber, newBCTrans.Amount);
+                newBCTrans = bctProvider.AddTransaction(newBCTrans.TransactionId, i.ToString(), "ABC", DateTime.Now, randomNumber, newBCTrans.Balance);
                 _bcTransactions.Add(newBCTrans);
             }
 
