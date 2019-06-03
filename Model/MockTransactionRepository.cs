@@ -7,11 +7,12 @@ namespace blockchain_poc.Model
     public class MockTransactionRepository : ITransactionRepository
     {
         private List<BCTransaction> _bcTransactions;
-
-        public MockTransactionRepository()
+        private int _numberOfTransactions;
+        public MockTransactionRepository(int numberOfTransactions)
         {
             if (_bcTransactions == null)
             {
+                _numberOfTransactions = numberOfTransactions;
                 InitializeBCTransactions();
             }
         }
@@ -31,7 +32,7 @@ namespace blockchain_poc.Model
                                    
 
             //Create some mock transactions
-            for (int i = 1; i < 50000; i++)
+            for (int i = 1; i < _numberOfTransactions+1; i++)
             {
                 bctProvider = new BCTransactionProvider();
 
@@ -43,7 +44,7 @@ namespace blockchain_poc.Model
                     randomNumber = random.Next(10, 500);
                 }
 
-                newBCTrans = bctProvider.AddTransaction(newBCTrans.TransactionId, i.ToString(), "ABC", DateTime.Now, randomNumber, newBCTrans.Balance);
+                newBCTrans = bctProvider.AddTransaction(newBCTrans.TransactionId,newBCTrans.TransactionHashCrypto, i.ToString(), "ABC", DateTime.Now, randomNumber, newBCTrans.Balance);
                 _bcTransactions.Add(newBCTrans);
             }
 
