@@ -8,5 +8,7 @@ This sample code will be the lowest level of chaining transactions to ensure val
 - No nonces
 - No signatures
 
+Update: This repo will now be archived. See BlockChain repo for more updated version.
+
 
 
